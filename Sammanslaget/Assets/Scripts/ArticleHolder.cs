@@ -1,16 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Essentials;
 using UnityEngine.UI;
 
 public class ArticleHolder : DragItem
 {
-    public Article data;
+    public Clothing data;
 
     private void Start()
     {
-        GetComponent<Image>().sprite = data.image;
+        GetComponent<Image>().sprite = data.sprite;
     }
 
 }

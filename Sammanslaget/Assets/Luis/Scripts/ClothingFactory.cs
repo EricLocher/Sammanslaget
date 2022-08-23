@@ -30,15 +30,26 @@ public enum TrendType
 public class ClothingFactory : MonoBehaviour
 {   
     [SerializeField] 
-    private Sprite[] trendSprites, shopSprites, recyclingSprites;
+    private static Sprite[] trendSprites, shopSprites, recyclingSprites;
+
+    private static ClothingFactory _instance;
+    public static ClothingFactory Instance { get { return _instance; } }
 
     private void Awake()
-    {        
-        GetSpritesLists();
+    {
+        if (_instance == null) {
+            _instance = this;
+            DontDestroyOnLoad(gameObject);
+        }
+        else {
+            Destroy(this.gameObject);
+        }
+
     }    
 
-    public Clothing GetRandomclothing()
+    public static Clothing GetRandomclothing()
     {
+        GetSpritesLists();
         //Sets a random clothingType
         var clothingType = (ClothingType)UnityEngine.Random.Range(0, Enum.GetNames(typeof(ClothingType)).Length);
         var trendType = new TrendType();
@@ -71,14 +82,14 @@ public class ClothingFactory : MonoBehaviour
         return new Clothing(clothingType, trendType, sprite);
     }
 
-    private int RandomizeClothingSprite(Sprite[] sprites)
+    private static int RandomizeClothingSprite(Sprite[] sprites)
     {
         int clothingNumber = UnityEngine.Random.Range(0, sprites.Length);
 
         return clothingNumber;
     }
 
-    private void GetSpritesLists()
+    private static void GetSpritesLists()
     {
         trendSprites = Resources.LoadAll<Sprite>("TrendSprites");
         shopSprites = Resources.LoadAll<Sprite>("ShopSprites");

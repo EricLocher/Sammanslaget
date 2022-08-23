@@ -5,16 +5,15 @@ using UnityEngine.UI;
 
 public class ArticleQueue : MonoBehaviour
 {
-    [SerializeField] Test test;
     [SerializeField] public GameObject dragPrefab;
     [SerializeField] int maxShowAmount;
 
-    Queue<Article> articles;
+    Queue<Clothing> articles;
 
 
     private void Awake()
     {
-        articles = new Queue<Article>();
+        articles = new Queue<Clothing>();
         AddArticle();
 
         StartCoroutine(TestRoutine());
@@ -27,7 +26,7 @@ public class ArticleQueue : MonoBehaviour
 
     public void AddArticle()
     {
-        articles.Enqueue(test.randomArt());
+        articles.Enqueue(ClothingFactory.GetRandomclothing());
         if(transform.childCount < maxShowAmount) {
             UpdateQueue();
         }
