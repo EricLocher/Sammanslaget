@@ -43,6 +43,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5a664064f9c6f3748815e199a85434d4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  garments:
+  - {fileID: 9078421058713194301, guid: 4417f69c646f11a4a90d83db5067c4a1, type: 3}
+  - {fileID: 2875237409481624979, guid: 32b3b17505cab50409fc03892971359b, type: 3}
+  - {fileID: 6590733098962269300, guid: 405f80351e012f640bc03b7bdfc30362, type: 3}
   trendSprites: []
   shopSprites: []
   recyclingSprites: []
