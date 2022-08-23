@@ -27,34 +27,29 @@ public enum TrendType
     None,
 }
 
-public class Clothing : MonoBehaviour
-{
-    public ClothingType clothingType;
-    public TrendType trendType;
-
+public class ClothingFactory : MonoBehaviour
+{   
     [SerializeField] 
     private Sprite[] trendSprites, shopSprites, recyclingSprites;
-
-    private SpriteRenderer spriteRenderer;
 
     private void Awake()
     {        
         GetSpritesLists();
-
-        spriteRenderer = GetComponent<SpriteRenderer>();
     }    
 
-    public void SetClothingSprite()
+    public Clothing GetRandomclothing()
     {
         //Sets a random clothingType
-        clothingType = (ClothingType)UnityEngine.Random.Range(0, Enum.GetNames(typeof(ClothingType)).Length);
+        var clothingType = (ClothingType)UnityEngine.Random.Range(0, Enum.GetNames(typeof(ClothingType)).Length);
+        var trendType = new TrendType();
+        Sprite sprite = null;
 
         switch (clothingType)
         {
             case ClothingType.Shop:
                 {
                     trendType = TrendType.None;
-                    spriteRenderer.sprite = shopSprites[RandomizeClothingSprite(shopSprites)];
+                    sprite = shopSprites[RandomizeClothingSprite(shopSprites)];
                     break;
                 }
             case ClothingType.Trend:
@@ -63,16 +58,17 @@ public class Clothing : MonoBehaviour
                     int trend = UnityEngine.Random.Range(0, Enum.GetNames(typeof(TrendType)).Length - 1);
 
                     trendType = (TrendType)trend;
-                    spriteRenderer.sprite = trendSprites[trend];
+                    sprite = trendSprites[trend];
                     break;
                 }
             case ClothingType.Recycling:
                 {
-                    trendType = TrendType.None;
-                    spriteRenderer.sprite = recyclingSprites[RandomizeClothingSprite(recyclingSprites)];
+                    trendType  = TrendType.None;
+                    sprite = recyclingSprites[RandomizeClothingSprite(recyclingSprites)];
                     break;
                 }
         }
+        return new Clothing(clothingType, trendType, sprite);
     }
 
     private int RandomizeClothingSprite(Sprite[] sprites)
@@ -88,7 +84,18 @@ public class Clothing : MonoBehaviour
         shopSprites = Resources.LoadAll<Sprite>("ShopSprites");
         recyclingSprites = Resources.LoadAll<Sprite>("RecyclingSprites");
     }
+}
 
+public class Clothing
+{
+    public ClothingType clothingType;
+    public TrendType trendType;
+    public Sprite sprite;
 
-
+    public Clothing(ClothingType clothingType, TrendType trendType, Sprite sprite)
+    {
+        this.clothingType = clothingType;
+        this.trendType = trendType;
+        this.sprite = sprite;
+    }
 }
