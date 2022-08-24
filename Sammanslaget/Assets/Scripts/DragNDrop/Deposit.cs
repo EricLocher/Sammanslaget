@@ -25,7 +25,7 @@ namespace Drop
             Destroy(eventData.pointerDrag.gameObject);
 
             if(data.clothingType == type) {
-                if(type == ClothingType.Trend && data.trendType != TrendChanger.GetTrend) {
+                if(type == ClothingType.Trend && data.trendType != TrendChanger.GetTrend && !eventData.pointerDrag.GetComponent<ArticleHolder>().isTrend) {
                     GameStats.RemoveHealth();
                     return;
                 }

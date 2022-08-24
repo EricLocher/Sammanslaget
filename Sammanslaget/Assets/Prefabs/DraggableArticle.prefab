@@ -89,7 +89,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 56c0bb680ca5590439830ea1e1f01af2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DragActive: 1
+  data:
+    clothingType: 0
+    trendType: 0
+    sprite: {fileID: 0}
   animCurve:
     serializedVersion: 2
     m_Curve:

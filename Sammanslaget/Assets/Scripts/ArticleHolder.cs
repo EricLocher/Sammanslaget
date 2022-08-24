@@ -11,6 +11,8 @@ public class ArticleHolder : DragItem
     Image image;
     public AnimationCurve animCurve;
 
+    [HideInInspector] public bool isTrend = false;
+
     void Start()
     {
         image = GetComponent<Image>();
@@ -24,7 +26,7 @@ public class ArticleHolder : DragItem
     void Update()
     {
 
-        if(data.trendType == TrendChanger.GetTrend && data.clothingType == ClothingType.Trend) {
+        if((data.trendType == TrendChanger.GetTrend && data.clothingType == ClothingType.Trend) || isTrend) {
             image.color = new Color(.8f, .7f, .21f, 1);
         }
         else {
@@ -38,8 +40,9 @@ public class ArticleHolder : DragItem
 
         if (data.clothingType == ClothingType.Trend && data.trendType != TrendChanger.GetTrend)
             data.clothingType = ClothingType.Shop;
-
-    }
+        else if((data.trendType == TrendChanger.GetTrend && data.clothingType == ClothingType.Trend))
+            isTrend = true;
+    }   
 
     IEnumerator Animate(Vector2 size, float rotZ, float timeInSeconds)
     {
