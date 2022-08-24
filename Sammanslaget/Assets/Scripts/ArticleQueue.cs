@@ -41,7 +41,7 @@ public class ArticleQueue : MonoBehaviour
     {
         if(articles.Count == 0) { return; }
         ArticleHolder article = Instantiate(dragPrefab, transform);
-        article.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+        article.transform.rotation = Quaternion.Euler(0, 0, Random.Range(-45, 45));
         article.GetComponent<ArticleHolder>().data = articles.Dequeue();
         article.transform.SetSiblingIndex(0);
 
