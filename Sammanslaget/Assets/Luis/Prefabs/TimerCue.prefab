@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc8d6a15b1c6314b9cf8c401b89a11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialMaxTime: 3
-  currentMaxTime: 3
+  initialMaxTime: 2
+  currentMaxTime: 2
   maxTimePercentage: 0
   currentTime: 0
   timerPercentage: 0.002
@@ -55,16 +55,43 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
+      value: 1
+      inSlope: -0.31402692
+      outSlope: -0.31402692
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.075034104
     - serializedVersion: 3
-      time: 200
-      value: 200
+      time: 0.017859602
+      value: 0.98505056
+      inSlope: -3.5174048
+      outSlope: -6.735161
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.17912778
+    - serializedVersion: 3
+      time: 0.09
+      value: 0.38910758
+      inSlope: -0.9918805
+      outSlope: -0.8863432
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.4786891
+      outWeight: 0.24198225
+    - serializedVersion: 3
+      time: 0.5022726
+      value: 0.26673228
+      inSlope: -0.12717113
+      outSlope: -0.066305615
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.26474065
+      outWeight: 0.19227122
+    - serializedVersion: 3
+      time: 1.0028076
+      value: 0.24067059
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -76,4 +103,16 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnTimeOut:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ArticleQueue, Assembly-CSharp
+        m_MethodName: AddArticle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2

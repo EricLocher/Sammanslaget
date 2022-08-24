@@ -365,57 +365,9 @@ PrefabInstance:
       value: TimerCue
       objectReference: {fileID: 0}
     - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
-      propertyPath: reduceMaxTime.m_Curve.Array.data[1].time
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
-      propertyPath: reduceMaxTime.m_Curve.Array.data[0].value
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
-      propertyPath: reduceMaxTime.m_Curve.Array.data[1].value
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
-      propertyPath: reduceMaxTime.m_Curve.Array.data[0].inSlope
-      value: -0.030705865
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
-      propertyPath: reduceMaxTime.m_Curve.Array.data[0].outSlope
-      value: -0.030705865
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
-      propertyPath: reduceMaxTime.m_Curve.Array.data[0].outWeight
-      value: 0.07673942
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
-      propertyPath: OnTimeOut.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
-      propertyPath: OnTimeOut.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
       propertyPath: OnTimeOut.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 408670829}
-    - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
-      propertyPath: OnTimeOut.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
-      propertyPath: OnTimeOut.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: AddArticle
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
-      propertyPath: OnTimeOut.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: ArticleQueue, Assembly-CSharp
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
-      propertyPath: OnTimeOut.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
-      value: UnityEngine.Object, UnityEngine
-      objectReference: {fileID: 0}
     - target: {fileID: 1641478633207978647, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
       propertyPath: m_RootOrder
       value: 5
