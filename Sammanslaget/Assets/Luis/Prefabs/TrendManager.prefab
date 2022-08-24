@@ -48,7 +48,9 @@ MonoBehaviour:
   currentMaxTime: 10
   maxTimePercentage: 1
   currentTime: 0
+  timerPercentage: 0.002
   iterations: 0
+  maxIterations: 500
   reduceMaxTime:
     serializedVersion: 2
     m_Curve:

@@ -47,7 +47,9 @@ MonoBehaviour:
   currentMaxTime: 3
   maxTimePercentage: 0
   currentTime: 0
+  timerPercentage: 0.002
   iterations: 0
+  maxIterations: 500
   reduceMaxTime:
     serializedVersion: 2
     m_Curve:
@@ -72,3 +74,6 @@ MonoBehaviour:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+  OnTimeOut:
+    m_PersistentCalls:
+      m_Calls: []
