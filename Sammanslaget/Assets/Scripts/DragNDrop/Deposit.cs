@@ -9,11 +9,13 @@ namespace Drop
     public class Deposit : DropPoint, IPointerEnterHandler, IPointerExitHandler
     {
         [SerializeField] ClothingType type;
+        Animator animator;
         Image image;
 
         void Awake()
         {
             image = GetComponent<Image>();
+            animator = GetComponent<Animator>();
             image.color = new Color(1, 1, 1, 0);
         }
 
@@ -39,10 +41,12 @@ namespace Drop
         public void OnPointerEnter(PointerEventData eventData)
         {
             if (eventData.pointerDrag == null) { return; }
+            animator.SetTrigger("FadeIn");
         }
 
         public void OnPointerExit(PointerEventData eventData)
         {
+            animator.SetTrigger("FadeOut");
         }
     }
 }
