@@ -8,6 +8,8 @@ public class ArticleQueue : MonoBehaviour
     [SerializeField] public ArticleHolder dragPrefab;
     [SerializeField] int maxShowAmount;
 
+    public int GetCount() { return visableArticles.Count + articles.Count; }
+
     List<ArticleHolder> visableArticles;
     Queue<Clothing> articles;
 
@@ -16,8 +18,6 @@ public class ArticleQueue : MonoBehaviour
         articles = new Queue<Clothing>();
         visableArticles = new List<ArticleHolder>();
         AddArticle();
-
-        StartCoroutine(TestRoutine());
     }
 
     void Update()
@@ -48,10 +48,4 @@ public class ArticleQueue : MonoBehaviour
         visableArticles.Add(article);
     }
 
-    IEnumerator TestRoutine()
-    {
-        yield return new WaitForSeconds(3);
-        AddArticle();
-        StartCoroutine(TestRoutine());
-    }
 }
