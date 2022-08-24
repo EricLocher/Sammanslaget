@@ -7,10 +7,22 @@ using TMPro;
 
 public class TrendChanger : MonoBehaviour
 {
-    public TrendType currentTrend;
-    private int currentTrendNumber, randomTrendNumber;
 
-    [SerializeField] private TextMeshProUGUI trendText;
+    private static TrendChanger _instance;
+    public static TrendChanger Instance { get { return _instance; } }
+    public static TrendType GetTrend => currentTrend;
+
+    static TrendType currentTrend;
+    private int currentTrendNumber, randomTrendNumber;
+    void Awake()
+    {
+        if (_instance == null) {
+            _instance = this;
+        }
+        else {
+            Destroy(this.gameObject);
+        }
+    }
 
     private void Start()
     {
@@ -30,8 +42,4 @@ public class TrendChanger : MonoBehaviour
         currentTrend = (TrendType)currentTrendNumber;
     }
 
-    public void ChangeTrendText()
-    {
-        trendText.text = currentTrend.ToString();
-    }
 }

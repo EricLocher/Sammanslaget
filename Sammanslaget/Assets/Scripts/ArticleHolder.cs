@@ -7,16 +7,24 @@ public class ArticleHolder : DragItem
 {
     public Clothing data;
     RectTransform rect;
-
+    Image image;
     public AnimationCurve animCurve;
 
-    private void Start()
+    void Start()
     {
-        GetComponent<Image>().sprite = data.sprite;
+        image = GetComponent<Image>();
+        image.sprite = data.sprite;
         rect = GetComponent<RectTransform>();
 
 
         StartCoroutine(Animate(rect.sizeDelta, rect.rotation.eulerAngles.z, .5f));
+    }
+
+    void Update()
+    {
+        if(data.trendType == TrendChanger.GetTrend) {
+            image.color = new Color(.8f, .7f, .21f, 1);
+        }
     }
 
     IEnumerator Animate(Vector2 size, float rotZ, float timeInSeconds)

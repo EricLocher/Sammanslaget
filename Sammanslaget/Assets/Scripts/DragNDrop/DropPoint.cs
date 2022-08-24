@@ -9,5 +9,4 @@ namespace Drop
     {
         public abstract void OnDrop(PointerEventData eventData);
     }
-
 }

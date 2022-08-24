@@ -13,7 +13,7 @@ public class DragItem : MonoBehaviour, IEndDragHandler, IBeginDragHandler, IDrag
     CanvasGroup canvasGroup;
     RectTransform rectTransform;
 
-    private void Awake()
+    void Awake()
     {
         rectTransform = GetComponent<RectTransform>();
         canvasGroup = GetComponent<CanvasGroup>();

@@ -11,7 +11,7 @@ public class ArticleQueue : MonoBehaviour
     List<ArticleHolder> visableArticles;
     Queue<Clothing> articles;
 
-    private void Awake()
+    void Awake()
     {
         articles = new Queue<Clothing>();
         visableArticles = new List<ArticleHolder>();
@@ -20,7 +20,7 @@ public class ArticleQueue : MonoBehaviour
         StartCoroutine(TestRoutine());
     }
 
-    private void Update()
+    void Update()
     {
         for (int i = 0; i < visableArticles.Count; i++) {
             visableArticles[i].SetDragActive((i == 0));
@@ -37,7 +37,7 @@ public class ArticleQueue : MonoBehaviour
         articles.Enqueue(ClothingFactory.GetRandomclothing());
     }
 
-    private void AddVisableArticle()
+    void AddVisableArticle()
     {
         if(articles.Count == 0) { return; }
         ArticleHolder article = Instantiate(dragPrefab, transform);
