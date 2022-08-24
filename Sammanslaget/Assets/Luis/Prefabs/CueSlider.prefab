@@ -121,9 +121,8 @@ GameObject:
   m_Component:
   - component: {fileID: 3028086261442429724}
   - component: {fileID: 3028086261442429725}
-  - component: {fileID: 3028086261442429726}
   m_Layer: 5
-  m_Name: Timer
+  m_Name: CueSlider
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -201,92 +200,6 @@ MonoBehaviour:
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
---- !u!114 &3028086261442429726
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3028086261442429723}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1cc8d6a15b1c6314b9cf8c401b89a11e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  initialMaxTime: 3
-  currentMaxTime: 3
-  maxTimePercentage: 1
-  currentTime: 0
-  amountOfClothes: 0
-  reduceMaxTime:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 200
-      inSlope: -0.046440184
-      outSlope: -0.046440184
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.17567404
-    - serializedVersion: 3
-      time: 10
-      value: 190.10664
-      inSlope: -3.336802
-      outSlope: -13.38248
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.3918929
-      outWeight: 0.048229195
-    - serializedVersion: 3
-      time: 30
-      value: 99.52773
-      inSlope: -0.5310002
-      outSlope: -1.7318987
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.49940044
-      outWeight: 0.378346
-    - serializedVersion: 3
-      time: 60
-      value: 72.35516
-      inSlope: -0.85845596
-      outSlope: -2.1416993
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.4908863
-      outWeight: 0.05359944
-    - serializedVersion: 3
-      time: 100
-      value: 30
-      inSlope: -0.49631453
-      outSlope: -0.8852779
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.42827186
-      outWeight: 0.29814422
-    - serializedVersion: 3
-      time: 120
-      value: 15
-      inSlope: -0.03163276
-      outSlope: -0.03163276
-      tangentMode: 1
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 200
-      value: 0
-      inSlope: -0.034407835
-      outSlope: Infinity
-      tangentMode: 97
-      weightedMode: 0
-      inWeight: 0.000053228
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
 --- !u!1 &3028086261473533879
 GameObject:
   m_ObjectHideFlags: 0

@@ -3,34 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.Events;
 
 public class Timer : MonoBehaviour
 {
-    private Slider timer;
-
     public float initialMaxTime;
     public float currentMaxTime;
     public float maxTimePercentage;
     public float currentTime;
     private float timerPercentage;
 
-    public int amountOfClothes;
+    public int iterations;
 
     public AnimationCurve reduceMaxTime;
+
+    [SerializeField] private UnityEvent OnTimeOut;
 
 
     void Start()
     {
-        timer = GetComponent<Slider>();
         currentTime = initialMaxTime;
     }
     void Update()
     {
         RunTimer();
         CheckTimer();
-
-        CalculateTimerPercentage();
-        SetTimerProgress();
     }
 
     private void RunTimer()
@@ -42,26 +39,17 @@ public class Timer : MonoBehaviour
     {
         if(currentTime <= 0)
         {
+            OnTimeOut.Invoke();
             currentTime = currentMaxTime;
-            amountOfClothes++;
+            iterations++;
             CalculateCurrentMaxtime();
         }
     }
 
     private void CalculateCurrentMaxtime()
     {
-        maxTimePercentage = reduceMaxTime.Evaluate(amountOfClothes) / 200;
+        maxTimePercentage = reduceMaxTime.Evaluate(iterations) / 200;
 
         currentMaxTime = initialMaxTime * maxTimePercentage;
-    }
-
-    private void CalculateTimerPercentage()
-    {
-        timerPercentage = currentTime / currentMaxTime;
-    }
-
-    public void SetTimerProgress()
-    {
-        timer.value = timerPercentage;
     }
 }
