@@ -365,20 +365,28 @@ PrefabInstance:
       value: TimerCue
       objectReference: {fileID: 0}
     - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
+      propertyPath: reduceMaxTime.m_Curve.Array.data[1].time
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
+      propertyPath: reduceMaxTime.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
       propertyPath: reduceMaxTime.m_Curve.Array.data[1].value
-      value: 100
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
       propertyPath: reduceMaxTime.m_Curve.Array.data[0].inSlope
-      value: 0.9281692
+      value: -0.030705865
       objectReference: {fileID: 0}
     - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
       propertyPath: reduceMaxTime.m_Curve.Array.data[0].outSlope
-      value: 0.9281692
+      value: -0.030705865
       objectReference: {fileID: 0}
     - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
       propertyPath: reduceMaxTime.m_Curve.Array.data[0].outWeight
-      value: 0.11510242
+      value: 0.07673942
       objectReference: {fileID: 0}
     - target: {fileID: 1641478633207978646, guid: f7a6e0e9af269154285e1ac84489ac36, type: 3}
       propertyPath: OnTimeOut.m_PersistentCalls.m_Calls.Array.size
@@ -1475,18 +1483,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6711809840391566036, guid: e26c6657e6bfbcc4cb0e7f359a97bd3b, type: 3}
-      propertyPath: currentMaxTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6711809840391566036, guid: e26c6657e6bfbcc4cb0e7f359a97bd3b, type: 3}
-      propertyPath: initialMaxTime
-      value: 10
-      objectReference: {fileID: 0}
-    - target: {fileID: 6711809840391566036, guid: e26c6657e6bfbcc4cb0e7f359a97bd3b, type: 3}
-      propertyPath: OnTimeOut.m_PersistentCalls.m_Calls.Array.size
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 6711809840391566037, guid: e26c6657e6bfbcc4cb0e7f359a97bd3b, type: 3}
       propertyPath: m_RootOrder
       value: 4
