@@ -5,40 +5,47 @@ using UnityEngine.UI;
 
 public class ArticleQueue : MonoBehaviour
 {
-    [SerializeField] public GameObject dragPrefab;
+    [SerializeField] public ArticleHolder dragPrefab;
     [SerializeField] int maxShowAmount;
 
+    List<ArticleHolder> visableArticles;
     Queue<Clothing> articles;
-
 
     private void Awake()
     {
         articles = new Queue<Clothing>();
+        visableArticles = new List<ArticleHolder>();
         AddArticle();
 
         StartCoroutine(TestRoutine());
     }
 
-    public void GetArticle()
+    private void Update()
     {
-  
+        for (int i = 0; i < visableArticles.Count; i++) {
+            visableArticles[i].SetDragActive((i == 0));
+            if(visableArticles[i] == null) { visableArticles.RemoveAt(i); i--; }
+        }
+
+        if (visableArticles.Count < maxShowAmount) {
+            AddVisableArticle();
+        }
     }
 
     public void AddArticle()
     {
         articles.Enqueue(ClothingFactory.GetRandomclothing());
-        if(transform.childCount < maxShowAmount) {
-            UpdateQueue();
-        }
     }
 
-    private void UpdateQueue()
+    private void AddVisableArticle()
     {
-        GameObject temp = Instantiate(dragPrefab, transform);
-        temp.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
-        temp.GetComponent<ArticleHolder>().data = articles.Dequeue();
-        temp.transform.SetSiblingIndex(0);
+        if(articles.Count == 0) { return; }
+        ArticleHolder article = Instantiate(dragPrefab, transform);
+        article.transform.rotation = Quaternion.Euler(0, 0, Random.Range(0, 360));
+        article.GetComponent<ArticleHolder>().data = articles.Dequeue();
+        article.transform.SetSiblingIndex(0);
 
+        visableArticles.Add(article);
     }
 
     IEnumerator TestRoutine()
