@@ -28,12 +28,16 @@ public enum TrendType
 }
 
 public class ClothingFactory : MonoBehaviour
-{   
+{
+    private static int randomTrendPercentage;
+
     [SerializeField] 
     private static Sprite[] trendSprites, shopSprites, recyclingSprites;
 
     private static ClothingFactory _instance;
     public static ClothingFactory Instance { get { return _instance; } }
+
+    
 
     private void Awake()
     {
@@ -65,12 +69,23 @@ public class ClothingFactory : MonoBehaviour
                 }
             case ClothingType.Trend:
                 {
-                    // The enum type corresponding non-trend clothes it´s at the end of the list, that is why we substract 1 to the length of the enum
-                    int trend = UnityEngine.Random.Range(0, Enum.GetNames(typeof(TrendType)).Length - 1);
+                    randomTrendPercentage = UnityEngine.Random.Range(1, 11);
 
-                    trendType = (TrendType)trend;
-                    sprite = trendSprites[trend];
-                    break;
+                    if (randomTrendPercentage < 6)
+                    {
+                        // The enum type corresponding non-trend clothes it´s at the end of the list, that is why we substract 1 to the length of the enum
+                        int trend = UnityEngine.Random.Range(0, Enum.GetNames(typeof(TrendType)).Length - 1);
+
+                        trendType = (TrendType)trend;
+                        sprite = trendSprites[trend];
+                    }
+                    else
+                    {
+                        trendType = TrendChanger.GetTrend;
+                        sprite = trendSprites[(int)trendType];
+                    }
+
+                        break;
                 }
             case ClothingType.Recycling:
                 {
