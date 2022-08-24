@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
 public class ArticleHolder : DragItem
@@ -22,9 +23,22 @@ public class ArticleHolder : DragItem
 
     void Update()
     {
-        if(data.trendType == TrendChanger.GetTrend) {
+
+        if(data.trendType == TrendChanger.GetTrend && data.clothingType == ClothingType.Trend) {
             image.color = new Color(.8f, .7f, .21f, 1);
         }
+        else {
+            image.color = new Color(1, 1, 1, 1);
+        }
+    }
+
+    public override void OnBeginDrag(PointerEventData eventData)
+    {
+        base.OnBeginDrag(eventData);
+
+        if (data.clothingType == ClothingType.Trend && data.trendType != TrendChanger.GetTrend)
+            data.clothingType = ClothingType.Shop;
+
     }
 
     IEnumerator Animate(Vector2 size, float rotZ, float timeInSeconds)

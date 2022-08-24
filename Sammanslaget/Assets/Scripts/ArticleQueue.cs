@@ -37,7 +37,7 @@ public class ArticleQueue : MonoBehaviour
         articles.Enqueue(ClothingFactory.GetRandomclothing());
     }
 
-    void AddVisableArticle()
+    private void AddVisableArticle()
     {
         if(articles.Count == 0) { return; }
         ArticleHolder article = Instantiate(dragPrefab, transform);

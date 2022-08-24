@@ -19,25 +19,21 @@ namespace Drop
 
         public override void OnDrop(PointerEventData eventData)
         {
-            ArticleHolder article = eventData.pointerDrag.GetComponent<ArticleHolder>();
+            Clothing data = eventData.pointerDrag.GetComponent<ArticleHolder>().data;
+            Destroy(eventData.pointerDrag.gameObject);
 
-            if (type == ClothingType.Trend) {
-                if(article.data.trendType == TrendChanger.GetTrend) {
-                    Destroy(article.gameObject);
-                    GameStats.AddPoint();
+            if(data.clothingType == type) {
+                if(type == ClothingType.Trend && data.trendType != TrendChanger.GetTrend) {
+                    GameStats.RemoveHealth();
                     return;
                 }
-                else {
-                    if(article.data.clothingType == type) {
-                        Destroy(article.gameObject);
-                        GameStats.AddPoint();
-                        return;
-                    }
-                }
 
-                Destroy(article.gameObject);
-                GameStats.RemoveHealth();
+                GameStats.AddPoint();
+                return;
             }
+ 
+
+            GameStats.RemoveHealth();
         }
 
         public void OnPointerEnter(PointerEventData eventData)

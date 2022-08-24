@@ -8,7 +8,7 @@ public class DragItem : MonoBehaviour, IEndDragHandler, IBeginDragHandler, IDrag
 {
     public bool SetDragActive(bool state) => DragActive = state;
 
-    bool DragActive = false;
+    protected bool DragActive = false;
 
     CanvasGroup canvasGroup;
     RectTransform rectTransform;
@@ -20,7 +20,7 @@ public class DragItem : MonoBehaviour, IEndDragHandler, IBeginDragHandler, IDrag
         rectTransform.anchoredPosition = transform.parent.GetComponent<RectTransform>().anchoredPosition;
     }
 
-    public void OnBeginDrag(PointerEventData eventData)
+    public virtual void OnBeginDrag(PointerEventData eventData)
     {
         if(!DragActive) { return; }
         canvasGroup.blocksRaycasts = false;

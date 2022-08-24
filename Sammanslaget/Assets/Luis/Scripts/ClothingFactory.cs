@@ -97,6 +97,7 @@ public class ClothingFactory : MonoBehaviour
     }
 }
 
+[Serializable]
 public class Clothing
 {
     public ClothingType clothingType;
