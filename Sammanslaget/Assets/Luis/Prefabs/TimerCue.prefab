@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc8d6a15b1c6314b9cf8c401b89a11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialMaxTime: 3
-  currentMaxTime: 3
+  initialMaxTime: 2.5
+  currentMaxTime: 2.5
   maxTimePercentage: 0
   currentTime: 0
   timerPercentage: 0.002
@@ -55,16 +55,25 @@ MonoBehaviour:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
-      inSlope: 2
-      outSlope: 2
+      value: 1
+      inSlope: -0.31402692
+      outSlope: -0.31402692
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
-      outWeight: 0
+      outWeight: 0.075034104
     - serializedVersion: 3
-      time: 200
-      value: 200
+      time: 0.063489884
+      value: 0.15244862
+      inSlope: -1.8452802
+      outSlope: -0.29422396
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.6431766
+      outWeight: 0.11980339
+    - serializedVersion: 3
+      time: 1
+      value: 0.072305106
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -76,4 +85,16 @@ MonoBehaviour:
     m_RotationOrder: 4
   OnTimeOut:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: ArticleQueue, Assembly-CSharp
+        m_MethodName: AddArticle
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
