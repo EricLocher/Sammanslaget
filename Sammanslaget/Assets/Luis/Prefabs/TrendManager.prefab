@@ -44,8 +44,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc8d6a15b1c6314b9cf8c401b89a11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialMaxTime: 3
-  currentMaxTime: 3
+  initialMaxTime: 8
+  currentMaxTime: 8
   maxTimePercentage: 1
   currentTime: 0
   timerPercentage: 0.002
@@ -65,7 +65,7 @@ MonoBehaviour:
       outWeight: 0.08390953
     - serializedVersion: 3
       time: 1
-      value: 0
+      value: 0.48434016
       inSlope: 0
       outSlope: 0
       tangentMode: 0

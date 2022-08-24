@@ -43,8 +43,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1cc8d6a15b1c6314b9cf8c401b89a11e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  initialMaxTime: 2.5
-  currentMaxTime: 2.5
+  initialMaxTime: 2
+  currentMaxTime: 2
   maxTimePercentage: 0
   currentTime: 0
   timerPercentage: 0.002
@@ -63,17 +63,35 @@ MonoBehaviour:
       inWeight: 0
       outWeight: 0.075034104
     - serializedVersion: 3
-      time: 0.063489884
-      value: 0.15244862
-      inSlope: -1.8452802
-      outSlope: -0.29422396
+      time: 0.017859602
+      value: 0.98505056
+      inSlope: -3.5174048
+      outSlope: -6.735161
       tangentMode: 1
       weightedMode: 0
-      inWeight: 0.6431766
-      outWeight: 0.11980339
+      inWeight: 0.33333334
+      outWeight: 0.17912778
     - serializedVersion: 3
-      time: 1
-      value: 0.072305106
+      time: 0.09
+      value: 0.38910758
+      inSlope: -0.9918805
+      outSlope: -0.8863432
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.4786891
+      outWeight: 0.24198225
+    - serializedVersion: 3
+      time: 0.5022726
+      value: 0.26673228
+      inSlope: -0.12717113
+      outSlope: -0.066305615
+      tangentMode: 1
+      weightedMode: 0
+      inWeight: 0.26474065
+      outWeight: 0.19227122
+    - serializedVersion: 3
+      time: 1.0028076
+      value: 0.24067059
       inSlope: 0
       outSlope: 0
       tangentMode: 0
