@@ -11,9 +11,11 @@ public class Timer : MonoBehaviour
     public float currentMaxTime;
     public float maxTimePercentage;
     public float currentTime;
-    private float timerPercentage;
+    
+    public float timerPercentage = 0.002f;
 
     public int iterations;
+    public int maxIterations;
 
     public AnimationCurve reduceMaxTime;
 
@@ -42,14 +44,20 @@ public class Timer : MonoBehaviour
             OnTimeOut.Invoke();
             currentTime = currentMaxTime;
             iterations++;
-            CalculateCurrentMaxtime();
+            SetTimerPercentage();
+            CalculateCurrentMaxtime();                
         }
     }
 
     private void CalculateCurrentMaxtime()
     {
-        maxTimePercentage = reduceMaxTime.Evaluate(iterations) / 200;
+        maxTimePercentage = reduceMaxTime.Evaluate(timerPercentage);
 
         currentMaxTime = initialMaxTime * maxTimePercentage;
+    }
+
+    private void SetTimerPercentage()
+    {
+        if(iterations != 0) timerPercentage = (float)iterations / (float)maxIterations;
     }
 }
