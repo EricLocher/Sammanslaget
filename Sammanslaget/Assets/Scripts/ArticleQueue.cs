@@ -35,6 +35,7 @@ public class ArticleQueue : MonoBehaviour
     public void AddArticle()
     {
         articles.Enqueue(ClothingFactory.GetRandomclothing());
+        SoundManager.PlayOneShot("ding");
     }
 
     public void ClearQueue()

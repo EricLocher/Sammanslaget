@@ -6,7 +6,7 @@ using TMPro;
 
 public class UIController : MonoBehaviour
 {
-    [SerializeField] TMP_Text points, trend, queue;
+    [SerializeField] TMP_Text points, trend;
     [SerializeField] Image hearts;
     [SerializeField] ArticleQueue _queue;
 
@@ -15,20 +15,19 @@ public class UIController : MonoBehaviour
         GameStats.OnPointsChangedEvent += UpdatePoints;
         GameStats.OnHealthChangedEvent += UpdateHealth;
 
-        points.text = "";
+        points.text = "0";
         trend.text = "";
-        queue.text = "";
     }
 
     private void Update()
     {
         trend.text = $"{TrendChanger.GetTrend}";
-        queue.text = $"{_queue.GetCount()}";
     }
 
     void UpdatePoints(int points)
     {
         this.points.text = $"{points}";
+        this.points.GetComponent<Animator>().SetTrigger("PointsAnimation");
     }
 
     void UpdateHealth(int points)
