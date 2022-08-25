@@ -37,6 +37,13 @@ public class GameStats : MonoBehaviour
 
     public static int GetHealth => stats.health;
     public static void RemoveHealth() { stats.health--; OnHealthChangedEvent.Invoke(stats.health); }
+
+
+    public static void ResetGameStats()
+    {
+        stats.health = 3;
+        stats.points = 0;
+    }
 }
 
 class Stats
