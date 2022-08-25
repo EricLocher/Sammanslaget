@@ -36,7 +36,11 @@ public class GameStats : MonoBehaviour
     public static void AddPoint() { stats.points++; OnPointsChangedEvent.Invoke(stats.points); }
 
     public static int GetHealth => stats.health;
-    public static void RemoveHealth() { stats.health--; OnHealthChangedEvent.Invoke(stats.health); }
+    public static void RemoveHealth() { 
+        stats.health--; 
+        OnHealthChangedEvent.Invoke(stats.health);
+        SoundManager.PlayOneShot("fail1");
+    }
 
 
     public static void ResetGameStats()

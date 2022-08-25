@@ -67,6 +67,8 @@ public class SoundManager : MonoBehaviour
 
     public static void PlayOneShot(string fileName)
     {
+        if (!sounds.ContainsKey(fileName)) { return; }
+
         AudioClip sound = sounds[fileName];
 
         foreach (AudioSource source in sources) {
@@ -79,8 +81,15 @@ public class SoundManager : MonoBehaviour
         }
     }
 
+    public static void PlayRandomOneShot(string[] fileNames)
+    {
+        PlayOneShot(fileNames[Random.Range(0, fileNames.Length)]);
+    }
+
     public static void PlayOnLoop(string fileName)
     {
+        if(!sounds.ContainsKey(fileName)) { return; }
+
         AudioClip sound = sounds[fileName];
         AudioSource source = CreateTempAudioSource();
 
