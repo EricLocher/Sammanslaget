@@ -45,6 +45,7 @@ public class GameStats : MonoBehaviour
         stats.points = 0;
 
         OnPointsChangedEvent.Invoke(stats.points);
+        OnHealthChangedEvent.Invoke(stats.health);
     }
 }
 
