@@ -29,7 +29,7 @@ public class DragItem : MonoBehaviour, IEndDragHandler, IBeginDragHandler, IDrag
     public void OnDrag(PointerEventData eventData)
     {
         if (!DragActive) { return; }
-        transform.position = eventData.position;
+        rectTransform.anchoredPosition += eventData.delta / GameCanvas.GetCanvas().scaleFactor;
     }
 
     public void OnEndDrag(PointerEventData eventData)
