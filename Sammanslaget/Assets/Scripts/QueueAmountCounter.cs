@@ -22,9 +22,6 @@ public class QueueAmountCounter : MonoBehaviour
     private void SetQueueAmountCounterBar()
     {
         float barPercentage = (float)articleQueue.GetCount() / (float)maxAmountQueuedClothing;
-
-        Debug.Log(barPercentage);
-
         queueAmount.value = barPercentage;
     }
 

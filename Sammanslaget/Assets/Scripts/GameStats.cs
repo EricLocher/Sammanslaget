@@ -43,6 +43,8 @@ public class GameStats : MonoBehaviour
     {
         stats.health = 3;
         stats.points = 0;
+
+        OnPointsChangedEvent.Invoke(stats.points);
     }
 }
 

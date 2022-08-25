@@ -54,11 +54,6 @@ public class MenuManager : MonoBehaviour
         isPaused = false;
     }
 
-    public void RestartGame()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
-
     public void OpenRulesStartImage()
     {
         rulesStart.SetActive(true);
