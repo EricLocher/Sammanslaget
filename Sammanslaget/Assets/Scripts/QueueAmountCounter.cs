@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,12 +16,24 @@ public class QueueAmountCounter : MonoBehaviour
     private void Update()
     {
         SetQueueAmountCounterBar();
+        CheckMaxAmount();
     }
 
-    public void SetQueueAmountCounterBar()
+    private void SetQueueAmountCounterBar()
     {
         float barPercentage = (float)articleQueue.GetCount() / (float)maxAmountQueuedClothing;
 
+        Debug.Log(barPercentage);
+
         queueAmount.value = barPercentage;
     }
+
+    private void CheckMaxAmount()
+    {
+        if (queueAmount.value >= 1)
+        {
+            GameStats.RemoveHealth();
+            articleQueue.ClearQueue();
+        }
+    } 
 }
