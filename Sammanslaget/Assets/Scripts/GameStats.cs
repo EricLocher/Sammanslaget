@@ -7,6 +7,14 @@ public class GameStats : MonoBehaviour
 
     static Stats stats;
 
+    #region Events
+    public delegate void OnPointsChanged(int amount);
+    public static event OnPointsChanged OnPointsChangedEvent;
+
+    public delegate void OnHealthChanged(int amount);
+    public static event OnHealthChanged OnHealthChangedEvent;
+    #endregion
+
     void Awake()
     {
         if (_instance == null) {
@@ -25,10 +33,10 @@ public class GameStats : MonoBehaviour
 
     //Getters & 'Setters'
     public static int GetPoints => stats.points;
-    public static void AddPoint() { stats.points++; }
+    public static void AddPoint() { stats.points++; OnPointsChangedEvent.Invoke(stats.points); }
 
     public static int GetHealth => stats.health;
-    public static void RemoveHealth() { stats.health--; }
+    public static void RemoveHealth() { stats.health--; OnHealthChangedEvent.Invoke(stats.health); }
 }
 
 class Stats

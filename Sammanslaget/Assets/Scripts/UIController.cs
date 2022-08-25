@@ -11,12 +11,27 @@ public class UIController : MonoBehaviour
 
     [SerializeField] ArticleQueue _queue;
 
+    private void Start()
+    {
+        GameStats.OnPointsChangedEvent += UpdatePoints;
+        points.text = "";
+        trend.text = "";
+        queue.text = "";
+    }
+
     private void Update()
     {
-        points.text = $"{GameStats.GetPoints}";
-        hearts.fillAmount = GameStats.GetHealth / 3f;
         trend.text = $"{TrendChanger.GetTrend}";
         queue.text = $"{_queue.GetCount()}";
     }
 
+    void UpdatePoints(int points)
+    {
+        this.points.text = $"{points}";
+    }
+
+    void UpdateHealth(int points)
+    {
+        hearts.fillAmount = GameStats.GetHealth / 3f;
+    }
 }

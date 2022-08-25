@@ -37,6 +37,16 @@ public class ArticleQueue : MonoBehaviour
         articles.Enqueue(ClothingFactory.GetRandomclothing());
     }
 
+    public void ClearQueue()
+    {
+        foreach (ArticleHolder article in visableArticles) {
+            Destroy(article.gameObject);
+        }
+
+        visableArticles.Clear();
+        articles.Clear();
+    }
+
     private void AddVisableArticle()
     {
         if(articles.Count == 0) { return; }
