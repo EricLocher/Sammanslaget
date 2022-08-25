@@ -60,4 +60,14 @@ public class Timer : MonoBehaviour
     {
         if(iterations != 0) timerPercentage = (float)iterations / (float)maxIterations;
     }
+
+    public void ResetValues()
+    {
+        currentMaxTime = initialMaxTime;
+        currentTime = initialMaxTime;
+        maxTimePercentage = 1;
+        timerPercentage = 0.002f;
+        iterations = 0;
+    }
+
 }
