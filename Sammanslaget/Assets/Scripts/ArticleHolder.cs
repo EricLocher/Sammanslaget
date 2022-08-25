@@ -3,34 +3,46 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.VFX;
 
 public class ArticleHolder : DragItem
 {
     public Clothing data;
+    public AnimationCurve animCurve;
     RectTransform rect;
     Image image;
-    public AnimationCurve animCurve;
-
+    VisualEffect vfx;
+    
+    public int index = 0;
     [HideInInspector] public bool isTrend = false;
+
+    bool vfxPlaying = false;
 
     void Start()
     {
         image = GetComponent<Image>();
+        vfx = GetComponentInChildren<VisualEffect>();
         image.sprite = data.sprite;
         rect = GetComponent<RectTransform>();
 
+        vfx.Stop();
 
         StartCoroutine(Animate(rect.sizeDelta, rect.rotation.eulerAngles.z, .5f));
     }
 
     void Update()
     {
+        rect.position = new Vector3(rect.position.x, rect.position.y, -index);
 
-        if((data.trendType == TrendChanger.GetTrend && data.clothingType == ClothingType.Trend) || isTrend) {
-            image.color = new Color(.8f, .7f, .21f, 1);
+        if(index != 0) { return; }
+        if ((data.trendType == TrendChanger.GetTrend && data.clothingType == ClothingType.Trend) || isTrend) {
+            if (!vfxPlaying) {
+                vfx.Play();
+                vfxPlaying = true;
+            }
         }
         else {
-            image.color = new Color(1, 1, 1, 1);
+            vfx.Stop();
         }
     }
 

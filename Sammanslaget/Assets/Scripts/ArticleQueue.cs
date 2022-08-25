@@ -24,6 +24,7 @@ public class ArticleQueue : MonoBehaviour
     {
         for (int i = 0; i < visableArticles.Count; i++) {
             visableArticles[i].SetDragActive((i == 0));
+            visableArticles[i].index = i;
             if(visableArticles[i] == null) { visableArticles.RemoveAt(i); i--; }
         }
 
