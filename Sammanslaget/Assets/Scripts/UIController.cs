@@ -33,6 +33,7 @@ public class UIController : MonoBehaviour
     void UpdateHealth(int points)
     {
         hearts.fillAmount = GameStats.GetHealth / 3f;
+        hearts.GetComponent<Animator>().SetTrigger("damage");
     }
 
     void OnDestroy()
