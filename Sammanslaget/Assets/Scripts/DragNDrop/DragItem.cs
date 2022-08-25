@@ -23,6 +23,7 @@ public class DragItem : MonoBehaviour, IEndDragHandler, IBeginDragHandler, IDrag
     public virtual void OnBeginDrag(PointerEventData eventData)
     {
         if(!DragActive) { return; }
+        SoundManager.PlayRandomOneShot(new string[] { "drag1", "drag2"});
         canvasGroup.blocksRaycasts = false;
     }
 

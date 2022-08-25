@@ -30,6 +30,18 @@ namespace Drop
                     return;
                 }
 
+                switch (type) {
+                    case ClothingType.Shop:
+                        SoundManager.PlayRandomOneShot(new string[] { "shop1", "shop2", "shop3" });
+                        break;
+                    case ClothingType.Trend:
+                        SoundManager.PlayOneShot("trend1");
+                        break;
+                    case ClothingType.Recycling:
+                        SoundManager.PlayOneShot("recycle2");
+                        break;
+                }
+
                 GameStats.AddPoint();
                 return;
             }
