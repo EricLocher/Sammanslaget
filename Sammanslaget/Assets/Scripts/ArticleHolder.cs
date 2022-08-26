@@ -64,7 +64,7 @@ public class ArticleHolder : DragItem
 
 
         if(Mathf.Abs(diff.x) > Mathf.Abs(diff.y)) {
-            if(Mathf.Abs(diff.x) < (Screen.width * .4f)) { base.OnEndDrag(eventData); return; }
+            if(Mathf.Abs(diff.x) < (Camera.main.pixelWidth * .4f)) { base.OnEndDrag(eventData); return; }
 
 
             if(diff.x > 0) {
@@ -75,7 +75,7 @@ public class ArticleHolder : DragItem
             }
         }
 
-        if (Mathf.Abs(diff.y) < (Screen.height * .5f)) { base.OnEndDrag(eventData); return; }
+        if (Mathf.Abs(diff.y) < (Camera.main.pixelHeight * .5f)) { base.OnEndDrag(eventData); return; }
 
         CheckDeposit(ClothingType.Trend);
     }
