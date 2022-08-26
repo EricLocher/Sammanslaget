@@ -61,7 +61,8 @@ public class ArticleHolder : DragItem
     {
         Vector2 diff = rectTransform.anchoredPosition - transform.parent.GetComponent<RectTransform>().anchoredPosition;
         Debug.Log(diff);
-
+        Debug.Log(Camera.main.pixelWidth);
+        Debug.Log(Camera.main.pixelHeight);
 
         if(Mathf.Abs(diff.x) > Mathf.Abs(diff.y)) {
             if(Mathf.Abs(diff.x) < (Camera.main.pixelWidth * .4f)) { base.OnEndDrag(eventData); return; }
