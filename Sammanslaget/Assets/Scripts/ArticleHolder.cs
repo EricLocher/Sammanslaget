@@ -74,7 +74,7 @@ public class ArticleHolder : DragItem
             }
         }
 
-        if (Mathf.Abs(diff.y) < ((Camera.main.pixelHeight/2) * .3f)) { base.OnEndDrag(eventData); return; }
+        if (Mathf.Abs(diff.y) < ((Camera.main.pixelHeight/2) * .25f)) { base.OnEndDrag(eventData); return; }
 
         CheckDeposit(ClothingType.Trend);
     }
