@@ -81,13 +81,13 @@ public class SoundManager : MonoBehaviour
         foreach (AudioSource source in sources) {
             if (!source.isPlaying) {
                 source.PlayOneShot(sound);
-                break;
+                return;
             }
+        } 
 
             AudioSource tempSource = CreateTempAudioSource(sound.length);
             tempSource.PlayOneShot(sound);
             sources.Add(tempSource);
-        }
     }
 
     public static void PlayRandomOneShot(string[] fileNames)
