@@ -8,6 +8,7 @@ public class EndOfGame : MonoBehaviour
     [SerializeField] TMP_Text pointsEndOfGame;
     [SerializeField] MenuManager menuManager;
     [SerializeField] Timer cueTimer, trendTimer;
+    [SerializeField] ArticleQueue article;
 
 
     private void Start()
@@ -25,6 +26,7 @@ public class EndOfGame : MonoBehaviour
             GameStats.ResetGameStats();
             cueTimer.ResetValues();
             trendTimer.ResetValues();
+            article.ClearQueue();
         }
     }
     void OnDestroy()
