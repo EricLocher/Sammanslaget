@@ -82,7 +82,7 @@ public class ArticleHolder : DragItem
     public void CheckDeposit(ClothingType type)
     {
         if (data.clothingType == type) {
-            if (type == ClothingType.Trend && data.trendType != TrendChanger.GetTrend && isTrend) {
+            if (type == ClothingType.Trend && data.trendType != TrendChanger.GetTrend && !isTrend) {
                 GameStats.RemoveHealth();
                 Destroy(gameObject);
                 return;
