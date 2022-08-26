@@ -11,7 +11,7 @@ public class ArticleHolder : DragItem
     public AnimationCurve animCurve;
     RectTransform rect;
     Image image;
-    VisualEffect vfx;
+    ParticleSystem vfx;
     
     public int index = 0;
     [HideInInspector] public bool isTrend = false;
@@ -21,7 +21,7 @@ public class ArticleHolder : DragItem
     void Start()
     {
         image = GetComponent<Image>();
-        vfx = GetComponentInChildren<VisualEffect>();
+        vfx = GetComponentInChildren<ParticleSystem>();
         image.sprite = data.sprite;
         rect = GetComponent<RectTransform>();
 
@@ -43,6 +43,7 @@ public class ArticleHolder : DragItem
         }
         else {
             vfx.Stop();
+            vfx.Clear();
         }
     }
 
