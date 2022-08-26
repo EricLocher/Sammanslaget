@@ -4,9 +4,10 @@ using UnityEngine;
 
 public class SoundManager : MonoBehaviour
 {
+    static bool soundPaused = false;
+
     static Dictionary<string, AudioClip> sounds;
     static List<AudioSource> sources;
-    static List<AudioSource> onLoopSources;
 
     private static SoundManager _instance;
     public static SoundManager Instance { get { return _instance; } }
@@ -23,6 +24,13 @@ public class SoundManager : MonoBehaviour
 
         LoadAudioClips();
         CreateAudioSources();
+    }
+
+    void Update()
+    {
+        for (int i = 0; i < sources.Count; i++) {
+            if(sources[i] == null) { sources.RemoveAt(i); i--; }
+        }    
     }
 
     void LoadAudioClips()
@@ -64,10 +72,9 @@ public class SoundManager : MonoBehaviour
         return audioSource;
     }
 
-
     public static void PlayOneShot(string fileName)
     {
-        if (!sounds.ContainsKey(fileName)) { return; }
+        if (!sounds.ContainsKey(fileName) || soundPaused) { return; }
 
         AudioClip sound = sounds[fileName];
 
@@ -77,7 +84,9 @@ public class SoundManager : MonoBehaviour
                 break;
             }
 
-            CreateTempAudioSource(sound.length).PlayOneShot(sound);
+            AudioSource tempSource = CreateTempAudioSource(sound.length);
+            tempSource.PlayOneShot(sound);
+            sources.Add(tempSource);
         }
     }
 
@@ -88,7 +97,7 @@ public class SoundManager : MonoBehaviour
 
     public static void PlayOnLoop(string fileName)
     {
-        if(!sounds.ContainsKey(fileName)) { return; }
+        if(!sounds.ContainsKey(fileName) || soundPaused) { return; }
 
         AudioClip sound = sounds[fileName];
         AudioSource source = CreateTempAudioSource();
@@ -97,14 +106,21 @@ public class SoundManager : MonoBehaviour
         source.loop = true;
         source.Play();
 
-        onLoopSources.Add(CreateTempAudioSource());
+        sources.Add(source);
     }
 
-    public static void StopLoopingSounds()
+    public static void Pause()
     {
-        foreach (AudioSource source in onLoopSources) {
+        soundPaused = true;
+
+        foreach (AudioSource source in sources) {
             source.Stop();
-            Destroy(source);
         }
     }
+
+    public static void UnPause()
+    {
+        soundPaused = false;
+    }
+
 }
