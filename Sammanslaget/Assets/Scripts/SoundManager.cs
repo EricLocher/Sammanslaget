@@ -114,13 +114,17 @@ public class SoundManager : MonoBehaviour
         soundPaused = true;
 
         foreach (AudioSource source in sources) {
-            source.Stop();
+            source.volume = 0;
         }
     }
 
     public static void UnPause()
     {
         soundPaused = false;
+
+        foreach (AudioSource source in sources) {
+            source.volume = 1;
+        }
     }
 
 }
