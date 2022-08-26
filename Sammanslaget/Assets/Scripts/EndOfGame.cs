@@ -9,6 +9,7 @@ public class EndOfGame : MonoBehaviour
     [SerializeField] MenuManager menuManager;
     [SerializeField] Timer cueTimer, trendTimer;
     [SerializeField] ArticleQueue article;
+    [SerializeField] RandomQuote quote;
 
 
     private void Start()
@@ -20,6 +21,7 @@ public class EndOfGame : MonoBehaviour
     {
         if(GameStats.GetHealth <= 0)
         {
+            quote.NewQuote();
             menuManager.Pause();
             menuManager.OpenGameOverScreenImage();
             pointsEndOfGame.text = GameStats.GetPoints.ToString();

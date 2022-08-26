@@ -6,11 +6,10 @@ using TMPro;
 public class RandomQuote : MonoBehaviour
 {
     [SerializeField] List<string> quotes;
-    TMP_Text text;
+    [SerializeField] TMP_Text text;
 
     private void Awake()
     {
-        text = GetComponent<TMP_Text>();
         NewQuote();
     }
 
