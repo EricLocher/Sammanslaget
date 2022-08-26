@@ -59,13 +59,11 @@ public class ArticleHolder : DragItem
 
     public override void OnEndDrag(PointerEventData eventData)
     {
-        Vector2 diff = rectTransform.anchoredPosition - transform.parent.GetComponent<RectTransform>().anchoredPosition;
+        Vector2 diff = Camera.main.WorldToScreenPoint(transform.position) - new Vector3(Camera.main.pixelWidth, Camera.main.pixelHeight)/2;
         Debug.Log(diff);
-        Debug.Log(Camera.main.pixelWidth);
-        Debug.Log(Camera.main.pixelHeight);
 
         if(Mathf.Abs(diff.x) > Mathf.Abs(diff.y)) {
-            if(Mathf.Abs(diff.x) < (Camera.main.pixelWidth * .4f)) { base.OnEndDrag(eventData); return; }
+            if(Mathf.Abs(diff.x) < ((Camera.main.pixelWidth/2) * .3f)) { base.OnEndDrag(eventData); return; }
 
 
             if(diff.x > 0) {
@@ -76,7 +74,7 @@ public class ArticleHolder : DragItem
             }
         }
 
-        if (Mathf.Abs(diff.y) < (Camera.main.pixelHeight * .5f)) { base.OnEndDrag(eventData); return; }
+        if (Mathf.Abs(diff.y) < ((Camera.main.pixelHeight/2) * .35f)) { base.OnEndDrag(eventData); return; }
 
         CheckDeposit(ClothingType.Trend);
     }
