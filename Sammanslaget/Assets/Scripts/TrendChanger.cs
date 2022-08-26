@@ -7,6 +7,7 @@ using TMPro;
 
 public class TrendChanger : MonoBehaviour
 {
+    [SerializeField] Animator animatorTrendText;
 
     private static TrendChanger _instance;
     public static TrendChanger Instance { get { return _instance; } }
@@ -26,7 +27,9 @@ public class TrendChanger : MonoBehaviour
 
     private void Start()
     {
-        ChangeCurrentTrend();
+        randomTrendNumber = UnityEngine.Random.Range(0, Enum.GetNames(typeof(TrendType)).Length - 1);
+        currentTrendNumber = randomTrendNumber;
+        currentTrend = (TrendType)currentTrendNumber;
     }
 
     public void ChangeCurrentTrend()
@@ -40,6 +43,10 @@ public class TrendChanger : MonoBehaviour
         currentTrendNumber = randomTrendNumber;
 
         currentTrend = (TrendType)currentTrendNumber;
+
+        SoundManager.PlayOneShot("newTrend");
+
+        animatorTrendText.Play("TrendText");
     }
 
 }
