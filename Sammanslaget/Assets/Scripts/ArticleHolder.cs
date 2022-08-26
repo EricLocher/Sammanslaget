@@ -60,7 +60,6 @@ public class ArticleHolder : DragItem
     public override void OnEndDrag(PointerEventData eventData)
     {
         Vector2 diff = Camera.main.WorldToScreenPoint(transform.position) - new Vector3(Camera.main.pixelWidth, Camera.main.pixelHeight)/2;
-        Debug.Log(diff);
 
         if(Mathf.Abs(diff.x) > Mathf.Abs(diff.y)) {
             if(Mathf.Abs(diff.x) < ((Camera.main.pixelWidth/2) * .3f)) { base.OnEndDrag(eventData); return; }
