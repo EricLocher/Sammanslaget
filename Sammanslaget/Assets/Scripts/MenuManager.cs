@@ -24,9 +24,15 @@ public class MenuManager : MonoBehaviour
 
     private void Start()
     {
-        SoundManager.PlayOnLoop("music");
+        StartMusic();
         Pause();
     }
+
+    public void StartMusic()
+    {
+        SoundManager.PlayOnLoop("music");
+    }
+
 
     public void TurnSoundOnOff()
     {
