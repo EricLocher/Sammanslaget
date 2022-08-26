@@ -11,7 +11,7 @@ public class DragItem : MonoBehaviour, IEndDragHandler, IBeginDragHandler, IDrag
     protected bool DragActive = false;
 
     CanvasGroup canvasGroup;
-    RectTransform rectTransform;
+    protected RectTransform rectTransform;
 
     void Awake()
     {
@@ -33,7 +33,7 @@ public class DragItem : MonoBehaviour, IEndDragHandler, IBeginDragHandler, IDrag
         rectTransform.anchoredPosition += eventData.delta / GameCanvas.GetCanvas().scaleFactor;
     }
 
-    public void OnEndDrag(PointerEventData eventData)
+    public virtual void OnEndDrag(PointerEventData eventData)
     {
         if (!DragActive) { return; }
         canvasGroup.blocksRaycasts = true;
