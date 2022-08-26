@@ -38,13 +38,13 @@ public class MenuManager : MonoBehaviour
     {
         if (soundOn)
         {
-            audiolistener.enabled = false;
+            SoundManager.Pause();
             soundOn = false;
             speakerIcon.sprite = speakerOff;
         }
         else if (!soundOn)
         {
-            audiolistener.enabled = true;
+            SoundManager.UnPause();
             soundOn = true;
             speakerIcon.sprite = speakerOn;
         }
